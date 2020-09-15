@@ -20,8 +20,9 @@ PROXIES = [{
 }]
 
 # Or MagicGoogle()
-mg = MagicGoogle(PROXIES)
-
+#mg = MagicGoogle(PROXIES)
+mg = MagicGoogle()
+search_key = input("Enter the Search Keyword: ")
 # The first page of results
 # result = mg.search_page(query='python')
 # print(result)
@@ -29,7 +30,7 @@ mg = MagicGoogle(PROXIES)
 # time.sleep(random.randint(1, 5))
 
 # Get {'title','url','text'}
-for i in mg.search(query='python', num=1, language='en'):
+for i in mg.search(query=str(search_key), num=1, language='en'):
     pprint.pprint(i)
 
 time.sleep(random.randint(1, 5))
@@ -40,7 +41,7 @@ time.sleep(random.randint(1, 5))
 # 'url': 'https://www.python.org/'}
 
 # Get first page
-for url in mg.search_url(query='python'):
+for url in mg.search_url(query=str(search_key)):
     pprint.pprint(url)
 
 time.sleep(random.randint(1, 5))
@@ -59,7 +60,7 @@ time.sleep(random.randint(1, 5))
 # 'https://www.continuum.io/downloads'
 
 # Get second page
-for url in mg.search_url(query='python', start=10):
+for url in mg.search_url(query=str(search_key), start=10):
     pprint.pprint(url)
 
 # Output
